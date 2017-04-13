@@ -3,31 +3,34 @@ package com.shuffle.team;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by ooguro on 2017/04/03.
  */
-public class ShuffledTeam implements Iterable<NickName> {
-    List<NickName> members = new ArrayList<>();
+public class ShuffledTeam implements Iterable<Member> {
+    List<Member> members = new ArrayList<>();
 
     public ShuffledTeam() {
         this(new ArrayList<>());
     }
 
-    public ShuffledTeam(List<NickName> members) {
+    public ShuffledTeam(List<Member> members) {
         this.members = members;
     }
 
-    public List<NickName> getMembers() {
+
+
+    public List<Member> getMembers() {
         return members;
     }
 
-    public void setMembers(List<NickName> members) {
+    public void setMembers(List<Member> members) {
         this.members = members;
     }
 
     @Override
-    public Iterator<NickName> iterator() {
+    public Iterator<Member> iterator() {
         return members.iterator();
     }
 }

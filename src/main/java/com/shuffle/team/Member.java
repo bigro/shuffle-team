@@ -6,11 +6,18 @@ package com.shuffle.team;
 public class Member {
     NickName nickName = new NickName("");
 
+    public Member() {
+    }
+
     public Member(NickName nickName) {
         this.nickName = nickName;
     }
 
     public NickName getNickName() {
         return nickName;
+    }
+
+    public void setNickName(NickName nickName) {
+        this.nickName = nickName;
     }
 }

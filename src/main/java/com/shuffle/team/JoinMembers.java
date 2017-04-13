@@ -1,36 +1,41 @@
 package com.shuffle.team;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by ooguro on 2017/04/03.
  */
-public class JoinMembers implements Iterable<NickName> {
+public class JoinMembers implements Iterable<Member> {
 
-    List<NickName> list = new ArrayList<>();
+    List<Member> list = new ArrayList<>();
 
     public JoinMembers() {
         this(new ArrayList<>());
     }
 
-    public JoinMembers(List<NickName> list) {
+    public JoinMembers(List<Member> list) {
         this.list = list;
     }
 
-    public List<NickName> getList() {
+    public static JoinMembers of(List<NickName> nickNames) {
+        List<Member> members = nickNames.stream()
+                .map(nickName -> new Member(nickName))
+                .collect(Collectors.toList());
+        return new JoinMembers(members);
+    }
+
+    public List<Member> getList() {
         return list;
     }
 
-    public void setList(List<NickName> list) {
+    public void setList(List<Member> list) {
         this.list = list;
     }
 
     @Override
-    public Iterator<NickName> iterator() {
+    public Iterator<Member> iterator() {
         return list.iterator();
     }
 

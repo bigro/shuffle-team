@@ -25,7 +25,7 @@
                     </thead>
                     <tbody>
                     <tr th:each="member : ${shuffledTeam}" th:object="${member}">
-                        <td th:text="${member.value}">大畔</td>
+                        <td th:text="${member.nickName.value}">大畔</td>
                     </tr>
                     </tbody>
                 </table>
