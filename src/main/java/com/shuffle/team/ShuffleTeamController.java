@@ -15,15 +15,15 @@ public class ShuffleTeamController {
     @GetMapping("/")
     public String show(Model model) {
         model.addAttribute("members",new TeamMembers());
-        model.addAttribute("checkedNickNames",new CheckedNickNames());
+        model.addAttribute("shuffle",new Shuffle());
         return "top";
     }
 
     @PostMapping("shuffle")
-    String shuffle(@ModelAttribute("checkedNickNames") CheckedNickNames checkedNickNames, Model model) {
+    String shuffle(@ModelAttribute("shuffle") Shuffle shuffle, Model model) {
         // CheckedNickNamesなしでなんとかしたい
-        JoinMembers joinMembers = JoinMembers.of(checkedNickNames.getList());
-        ShuffledTeams shuffledTeams = joinMembers.shuffle();
+        JoinMembers joinMembers = JoinMembers.of(shuffle.getCheckedNickNames().getList());
+        ShuffledTeams shuffledTeams = joinMembers.shuffle(shuffle.getTeamCount());
         model.addAttribute("shuffledTeams", shuffledTeams);
         return "shuffle";
     }

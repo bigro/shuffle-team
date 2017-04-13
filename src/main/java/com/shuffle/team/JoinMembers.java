@@ -39,17 +39,18 @@ public class JoinMembers implements Iterable<Member> {
         return list.iterator();
     }
 
-    public ShuffledTeams shuffle() {
+    public ShuffledTeams shuffle(TeamCount teamCount) {
         Collections.shuffle(list);
-        int q = (list.size() / 2);
-        int surplus = list.size() % 2;
+        int q = (list.size() / teamCount.getValue());
+        int surplus = list.size() % teamCount.getValue();
 
         List<ShuffledTeam> teams = new ArrayList<>();
         int from = 0;
-        for (int i = 0; i < 2; i++) {
-            ShuffledTeam team = new ShuffledTeam(list.subList(from, from + q + surplus));
+        for (int i = 0; i < teamCount.getValue(); i++) {
+            int addMember = surplus > 0 ? 1 : 0;
+            ShuffledTeam team = new ShuffledTeam(list.subList(from, from + q + addMember));
             teams.add(team);
-            from = q + surplus;
+            from += q + addMember;
             surplus = surplus - 1 < 1 ? 0 : surplus - 1;
         }
         return new ShuffledTeams(teams);

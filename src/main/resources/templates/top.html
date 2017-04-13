@@ -15,7 +15,7 @@
             <h3>チームメンバー</h3>
         </div>
         <div class="panel-body">
-            <form action="shuffle" method="post" th:object="${checkedNickNames}">
+            <form action="shuffle" method="post" th:object="${shuffle}">
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -25,12 +25,14 @@
                     </thead>
                     <tbody>
                     <tr th:each="member,stat : ${members}" th:object="${member}">
-                        <td><input type="checkbox" th:field="${checkedNickNames.list}"
+                        <td><input type="checkbox" th:field="${shuffle.checkedNickNames.list}"
                                    th:value="*{nickName}"/></td>
                         <td th:text="*{nickName}">大畔</td>
                     </tr>
                     </tbody>
                 </table>
+                <input type="text" th:field="${shuffle.teamCount.value}"/>
+                <span>チームに</span>
                 <button class="btn btn-primary">シャッフル</button>
             </form>
         </div>
