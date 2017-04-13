@@ -3,24 +3,25 @@ package com.shuffle.team;
 /**
  * Created by ooguro on 2017/04/03.
  */
-public class Identifier {
+public class NickName {
 
-    Long value = 0L;
+    String value = "";
 
-    public Identifier() {
-        this(0L);
-    }
-
-    public Identifier(Long value) {
+    public NickName(String value) {
         this.value = value;
     }
 
-    public Long getValue() {
+    public String getValue() {
         return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override
     public String toString() {
         return value.toString();
     }
+
 }

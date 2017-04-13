@@ -15,7 +15,7 @@
             <h3>チームメンバー</h3>
         </div>
         <div class="panel-body">
-            <form action="shuffle" method="post" th:object="${shuffleMembers}">
+            <form action="shuffle" method="post" th:object="${joinMembers}">
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -25,8 +25,8 @@
                     </thead>
                     <tbody>
                     <tr th:each="member : ${members}" th:object="${member}">
-                        <td><input type="checkbox" th:field="${shuffleMembers.list}" th:value="*{name}"/></td>
-                        <td th:text="*{name}">大畔</td>
+                        <td><input type="checkbox" th:field="${joinMembers.list}" th:value="*{nickName}"/></td>
+                        <td th:text="*{nickName}">大畔</td>
                     </tr>
                     </tbody>
                 </table>

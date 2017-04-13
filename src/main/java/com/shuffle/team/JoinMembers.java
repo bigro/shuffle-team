@@ -9,44 +9,44 @@ import java.util.List;
 /**
  * Created by ooguro on 2017/04/03.
  */
-public class ShuffleMembers implements Iterable<Name> {
+public class JoinMembers implements Iterable<NickName> {
 
-    List<Name> list = new ArrayList<>();
+    List<NickName> list = new ArrayList<>();
 
-    public ShuffleMembers() {
+    public JoinMembers() {
         this(new ArrayList<>());
     }
 
-    public ShuffleMembers(List<Name> list) {
+    public JoinMembers(List<NickName> list) {
         this.list = list;
     }
 
-    public List<Name> getList() {
+    public List<NickName> getList() {
         return list;
     }
 
-    public void setList(List<Name> list) {
+    public void setList(List<NickName> list) {
         this.list = list;
     }
 
     @Override
-    public Iterator<Name> iterator() {
+    public Iterator<NickName> iterator() {
         return list.iterator();
     }
 
-    public ShuffleTeams shuffle() {
+    public ShuffledTeams shuffle() {
         Collections.shuffle(list);
         int q = (list.size() / 2);
         int surplus = list.size() % 2;
 
-        List<Team> teams = new ArrayList<>();
+        List<ShuffledTeam> teams = new ArrayList<>();
         int from = 0;
         for (int i = 0; i < 2; i++) {
-            Team team = new Team(list.subList(from, from + q + surplus));
+            ShuffledTeam team = new ShuffledTeam(list.subList(from, from + q + surplus));
             teams.add(team);
             from = q + surplus;
             surplus = surplus - 1 < 1 ? 0 : surplus - 1;
         }
-        return new ShuffleTeams(teams);
+        return new ShuffledTeams(teams);
     }
 }

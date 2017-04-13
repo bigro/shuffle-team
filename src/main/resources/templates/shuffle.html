@@ -15,7 +15,7 @@
             <h3>結果</h3>
         </div>
         <div class="panel-body">
-            <th:block th:each="shuffleTeam,stat : ${shuffleTeams}">
+            <th:block th:each="shuffledTeam,stat : ${shuffledTeams}">
                 <h5 th:text="|チーム${stat.index + 1}|">チーム</h5>
                 <table class="table table-striped">
                     <thead>
@@ -24,7 +24,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="member : ${shuffleTeam}" th:object="${member}">
+                    <tr th:each="member : ${shuffledTeam}" th:object="${member}">
                         <td th:text="${member.value}">大畔</td>
                     </tr>
                     </tbody>

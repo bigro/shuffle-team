@@ -8,28 +8,28 @@ import java.util.List;
 /**
  * Created by ooguro on 2017/04/03.
  */
-public class ShuffleTeams implements Iterable<Team>{
+public class ShuffledTeams implements Iterable<ShuffledTeam>{
 
-    List<Team> list = new ArrayList<>();
+    List<ShuffledTeam> list = new ArrayList<>();
 
-    public ShuffleTeams() {
+    public ShuffledTeams() {
         this(new ArrayList<>());
     }
 
-    public ShuffleTeams(List<Team> list) {
+    public ShuffledTeams(List<ShuffledTeam> list) {
         this.list = list;
     }
 
-    public List<Team> getList() {
+    public List<ShuffledTeam> getList() {
         return list;
     }
 
-    public void setList(List<Team> list) {
+    public void setList(List<ShuffledTeam> list) {
         this.list = list;
     }
 
     @Override
-    public Iterator<Team> iterator() {
+    public Iterator<ShuffledTeam> iterator() {
         return list.iterator();
     }
 

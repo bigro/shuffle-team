@@ -4,19 +4,13 @@ package com.shuffle.team;
  * Created by ooguro on 2017/04/03.
  */
 public class Member {
-    Identifier identifier = new Identifier();
-    Name name = new Name("");
+    NickName nickName = new NickName("");
 
-    public Member(Identifier identifier, Name name) {
-        this.identifier = identifier;
-        this.name = name;
+    public Member(NickName nickName) {
+        this.nickName = nickName;
     }
 
-    public Identifier getIdentifier() {
-        return identifier;
-    }
-
-    public Name getName() {
-        return name;
+    public NickName getNickName() {
+        return nickName;
     }
 }
